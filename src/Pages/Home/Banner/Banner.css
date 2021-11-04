@@ -1,0 +1,31 @@
+.banner-caption{
+    bottom: 25%;
+    top: 20%;
+}
+.banner-caption h1{
+    text-transform: uppercase;
+    color: #f56961;
+}
+.banner-caption p{
+    font-size: 20px;
+}
+.destination-section{
+    margin: 50px 50px;
+}
+.destination-img{
+    width: 100%;
+}
+.destination-img img{
+    margin: 20px 10px;
+}
+.destination-context p{
+    color: #f56961;
+    font-size: 20px;
+}
+.destination-context h1{
+    font-weight: 700;
+}
+.destination-context p small{
+    color: black;
+    font-size: 15px;
+}

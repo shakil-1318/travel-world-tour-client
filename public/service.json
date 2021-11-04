@@ -1,0 +1,56 @@
+[
+    {
+        "key": "1",
+        "tour": "Thailand",
+        "place": "Koh Phi Phi",
+        "price": 350.00,
+        "img": "https://www.planetware.com/photos-large/THA/thailand-koh-phi-phi.jpg",
+        "description": "The Phi Phi Islands are one of Thailand's most popular resort areas for a reason–the clear blue waters, the soft sand, the breathtaking views that go on forever.",
+        "stay": "3 days and 2 night"
+    },
+    {
+        "key": "2",
+        "tour": "Germany",
+        "place": "Medieval Rothenburg",
+        "price": 450.00,
+        "img": "https://www.planetware.com/wpimages/2021/03/germany-top-attractions-rothenburg-of-der-tauber.jpg",
+        "description": "If there's a single travel destination in Germany that encapsulates all that's wonderful about this amazing country, it's the old town of Rothenburg ob der Tauber.",
+        "stay": "3 days and 2 night"
+    },
+    {
+        "key": "3",
+        "tour": "Denmark",
+        "place": "Tivoli Gardens, Copenhagen",
+        "price": 300.00,
+        "img": "https://www.planetware.com/photos-large/DK/denmark-tivoli-gardens.jpg",
+        "description": "When visiting Copenhagen, many visitors make a beeline for this iconic recreation space. Dating from 1843, Tivoli is the inspiration behind the world-famous Disney theme parks",
+        "stay": "3 days and 2 night"
+    },
+    {
+        "key": "4",
+        "tour": "Japan",
+        "place": "Osaka Castle",
+        "price": 300.00,
+        "img": "https://www.planetware.com/wpimages/2020/09/japan-top-attractions-osaka-castle.jpg",
+        "description": "Built in 1586 by famous Japanese warrior and politician Toyotomi Hideyoshi, Osaka Castle (Ōsaka-jō) was at the time the largest and most important fortress in the country.",
+        "stay": "3 days and 2 night"
+    },
+    {
+        "key": "5",
+        "tour": "Italy",
+        "place": "Colosseum",
+        "price": 500.00,
+        "img": "https://www.planetware.com/photos-large/I/italy-colosseum-day.jpg",
+        "description": "This huge amphitheater, the largest of its kind ever built by the Roman Empire and the largest of their constructions to survive, remained a model for sports facilities.",
+        "stay": "3 days and 2 night"
+    },
+    {
+        "key": "6",
+        "tour": "Turkry",
+        "place": "Aya Sofya",
+        "price": 500.00,
+        "img": "https://www.planetware.com/photos-large/TR/turkey-aya-sofya-exterior.jpg",
+        "description": "Renowned as one of the most beautiful buildings in the world, the spellbinding Byzantine glory of the Hagia Sophia Mosque (Aya Sofya) is not only one of the top things to do in Istanbul.",
+        "stay": "3 days and 2 night"
+    }
+]

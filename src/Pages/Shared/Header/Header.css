@@ -1,0 +1,12 @@
+.navbar{
+    background-color: purple;
+    padding: 20px 0;
+}
+.nav-menu{
+    color: white;
+}
+.navbar-img{
+    margin-right: 10px;
+    max-width: 30%;
+    border-radius: 100%;
+}
