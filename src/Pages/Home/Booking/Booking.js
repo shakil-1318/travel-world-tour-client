@@ -15,7 +15,7 @@ const Booking = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/singleService/${serviceId}`)
+        fetch(`https://murmuring-river-32108.herokuapp.com/singleService/${serviceId}`)
             .then(res => res.json())
             .then(data => {
 
@@ -33,7 +33,7 @@ const Booking = () => {
         data.status = 'pending';
 
 
-        fetch("http://localhost:5000/confirmOrder", {
+        fetch("https://murmuring-river-32108.herokuapp.com/confirmOrder", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

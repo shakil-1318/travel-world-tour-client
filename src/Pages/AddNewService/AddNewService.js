@@ -12,7 +12,7 @@ const AddNewService = () => {
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/services', data)
+        axios.post('https://murmuring-river-32108.herokuapp.com/services', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Successfully addedded')
@@ -24,7 +24,7 @@ const AddNewService = () => {
     return (
         <>
             <div className='booking-container container'>
-                <h1>Add New Service</h1>
+                <h1 className='text-center text-primary m-3'>Add New Service</h1>
                 <div className="form-container">
                     <div className='row w-75 mx-auto'>
                         <div className='col-lg-12'>

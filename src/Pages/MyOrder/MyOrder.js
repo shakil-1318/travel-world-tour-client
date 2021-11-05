@@ -18,7 +18,7 @@ const MyOrder = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${email}`)
+        fetch(`https://murmuring-river-32108.herokuapp.com/myOrders/${email}`)
             .then(res => res.json())
             .then(data => {
 
@@ -31,7 +31,7 @@ const MyOrder = () => {
         const procceed = window.confirm('are you sure want to delete');
 
         if (procceed) {
-            fetch(`http://localhost:5000/delete/${id}`, {
+            fetch(`https://murmuring-river-32108.herokuapp.com/delete/${id}`, {
                 method: "DELETE",
             })
                 .then(res => res.json())
@@ -54,7 +54,7 @@ const MyOrder = () => {
         <>
             <div className='container'>
                 {
-                    !services.length && <h1 className='text-center m-3'>Sorry You have no order!</h1> || <h1 className='text-center m-3'>My Order</h1>
+                    !services.length && <h1 className='text-center m-3'>You have no order yet!</h1> || <h1 className='text-center m-3'>My Order</h1>
                 }
 
                 <div className="row">
