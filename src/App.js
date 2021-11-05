@@ -3,6 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './context/AuthProvider';
 import About from './Pages/About/About';
+import AddNewService from './Pages/AddNewService/AddNewService';
+import Booking from './Pages/Home/Booking/Booking';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
@@ -13,7 +15,7 @@ import Header from './Pages/Shared/Header/Header';
 
 function App() {
   return (
-    <div>
+    <>
       <AuthProvider>
         <BrowserRouter>
           <Header></Header>
@@ -30,11 +32,17 @@ function App() {
             <Route path='/login'>
               <Login></Login>
             </Route>
-            <PrivateRoute path='/myorder'>
+            <Route path='/myorder'>
               <MyOrder></MyOrder>
-            </PrivateRoute>
-            <PrivateRoute path='/manage'>
+            </Route>
+            <PrivateRoute path='/manageOrder'>
               <ManageOrder></ManageOrder>
+            </PrivateRoute>
+            <PrivateRoute path='/addnewservice'>
+              <AddNewService></AddNewService>
+            </PrivateRoute>
+            <PrivateRoute exact path='/booking/:serviceId'>
+              <Booking></Booking>
             </PrivateRoute>
             <Route exact path='*'>
               <Notfound></Notfound>
@@ -42,7 +50,7 @@ function App() {
           </Switch>
         </BrowserRouter>
       </AuthProvider>
-    </div>
+    </>
   );
 }
 

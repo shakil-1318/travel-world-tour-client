@@ -1,48 +1,82 @@
-import React from 'react';
-import useOrder from '../../hooks/useOrder';
-import useServices from '../../hooks/useServices';
-import OrderItem from '../../OrderItem/OrderItem';
-import { deleteFromDb } from '../../utilities/fakedb';
+import React, { useEffect, useState } from 'react';
+import useAuth from '../../hooks/useAuth';
+import Button from 'react-bootstrap/Button';
+import { Card } from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner'
+import Footer from '../Shared/Footer/Footer';
+
+
+
 
 const MyOrder = () => {
-    const [services, setServices] = useServices();
-    const [order, setOrder] = useOrder(services);
+    const [services, setServices] = useState([])
 
-    let totalQuantity = 0;
-    let total = 0;
-    for (const booking of order) {
-        if (!booking.quantity) {
-            booking.quantity = 1;
+
+
+    const { user, isLoading } = useAuth();
+    const email = user?.email;
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/myOrders/${email}`)
+            .then(res => res.json())
+            .then(data => {
+
+                setServices(data)
+
+            })
+    }, [])
+
+    const handleDelete = (id) => {
+        const procceed = window.confirm('are you sure want to delete');
+
+        if (procceed) {
+            fetch(`http://localhost:5000/delete/${id}`, {
+                method: "DELETE",
+            })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.deletedCount) {
+                        alert('Delete');
+                        const remaining = services.filter(service => service._id !== id)
+                        setServices(remaining);
+                    }
+
+                })
         }
-        else {
-            total = total + booking.price * booking.quantity;
-            totalQuantity = totalQuantity + booking.quantity;
-        }
+
     }
 
-    const handleRemove = key => {
-        const newOrder = order.filter(service => service.key !== key)
-        setOrder(newOrder)
-        deleteFromDb(key);
-    }
 
 
     return (
-        <div className='container'>
-            <div className="text-center">
-                <h1>My order list: {totalQuantity}</h1>
-                <h2>Total Purchase money: {total}</h2>
-            </div>
-            <div className="row">
+        <>
+            <div className='container'>
                 {
-                    order.map(service => <OrderItem
-                        key={service.key}
-                        service={service}
-                        handleRemove={handleRemove}
-                    ></OrderItem>)
+                    !services.length && <h1 className='text-center m-3'>Sorry You have no order!</h1> || <h1 className='text-center m-3'>My Order</h1>
                 }
+
+                <div className="row">
+                    {
+                        services.map(service => (
+                            <div className="col-lg-4" key={service._id}>
+                                <Card style={{ width: '18rem' }}>
+                                    <Card.Img variant="top" src={service?.image} />
+                                    <Card.Body>
+                                        <Card.Title>{service?.tour}</Card.Title>
+                                        <Card.Text>
+                                            {service?.description}
+                                        </Card.Text>
+                                        <Button onClick={() => handleDelete(service?._id)} variant="danger">DELETE</Button>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

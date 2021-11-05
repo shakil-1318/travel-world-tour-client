@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { addToDb, getStoredCart } from '../../../utilities/fakedb';
-import MyOrder from '../../MyOrder/MyOrder';
 import Service from '../Service/Service';
 import './Services.css'
 
 const Services = () => {
     const [services, setServices] = useState([]);
-    const [order, setOrder] = useState([]);
+
 
 
     useEffect(() => {
@@ -14,46 +12,6 @@ const Services = () => {
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
-
-    useEffect(() => {
-        if (services.length) {
-            const savedOrder = getStoredCart();
-            const storedOrder = [];
-            for (const key in savedOrder) {
-                const addedService = services.find(service => service.key === key);
-                if (addedService) {
-                    const quantity = savedOrder[key];
-                    addedService.quantity = quantity;
-                    storedOrder.push(addedService);
-                }
-
-            }
-            setOrder(storedOrder)
-        }
-
-    }, [services])
-
-    const handleAddToOrder = service => {
-        const newOrder = [...order, service]
-        setOrder(newOrder);
-        // save to local storage for now
-
-        addToDb(service.key);
-    }
-
-
-    // order result
-    let totalQuantity = 0;
-    let total = 0;
-    for (const booking of order) {
-        if (!booking.quantity) {
-            booking.quantity = 1;
-        }
-        else {
-            total = total + booking.price * booking.quantity;
-            totalQuantity = totalQuantity + booking.quantity;
-        }
-    }
 
 
     return (
@@ -67,17 +25,12 @@ const Services = () => {
                 <div className="service-container row">
                     {
                         services.map(service => <Service
-                            key={service.key}
+                            key={service._id}
                             service={service}
-                            handleAddToOrder={handleAddToOrder}
+
                         ></Service>)
                     }
                 </div>
-            </div>
-            <div className="oredr-container ">
-                <h1>order summary</h1>
-                <h3>items order:{totalQuantity} </h3>
-                <p>Total = {total}</p>
             </div>
         </div>
     );

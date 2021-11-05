@@ -19,14 +19,15 @@ const Header = () => {
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link className='nav-menu' as={HashLink} to="/home#home">Home</Nav.Link>
                         <Nav.Link className='nav-menu' as={HashLink} to="/home#service">Services</Nav.Link>
-                        <Nav.Link className='nav-menu link' as={Link} to="/about">About</Nav.Link>
-                        <NavDropdown className='nav-menu' title="Dashboard" id="collasible-nav-dropdown">
-                            <NavDropdown.Item as={Link} to="/myorder">My Order</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/manage">Manage All Order</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                        </NavDropdown>
+                        <Nav.Link className='nav-menu link' as={Link} to="/myorder">My Order</Nav.Link>
+                        {
+                            user.email &&
+                            <NavDropdown className='nav-menu' title="Dashboard" id="collasible-nav-dropdown">
+                                <NavDropdown.Item as={Link} to="/addnewservice">Add Service</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/manageOrder">Manage All Order</NavDropdown.Item>
+
+                            </NavDropdown>
+                        }
                         {
                             user.email ?
                                 <Button onClick={logOut} variant="primary" size="sm">
@@ -37,7 +38,7 @@ const Header = () => {
                         }
                         <Navbar.Text>
                             {
-                                user.email ? <img className='navbar-img' src={user.photoURL} alt="" /> : ''
+                                user.email && <img className='navbar-img' src={user.photoURL} alt="" />
                             }
                         </Navbar.Text>
                     </Navbar.Collapse>

@@ -1,27 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 import './Service.css'
+import Button from 'react-bootstrap/Button';
+
 
 const Service = (props) => {
-    // console.log(props);
-    const { key, tour, img, place, description, price } = props.service;
-
-
-
+    const { _id, img, tour, place, price, description } = props.service
     return (
         <div className="col-lg-4 g-5 ">
             <Card className='h-100'>
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
-                    <p className='tour-location'><span><i class="fas fa-map-marker-alt"></i></span> {tour}</p>
-                    <h4 className='tour-location'>${price}</h4>
-                    <Card.Title>{place}</Card.Title> <br />
+                    <p className='tour-location'><span><i class="fas fa-map-marker-alt"></i> {place}</span></p>
+                    <h4 className='tour-location'>{tour}</h4>
+                    <Card.Title>Price: $ {price}</Card.Title> <br />
                     <Card.Text>
                         {description}
                     </Card.Text>
-                    <Button onClick={() => props.handleAddToOrder(props.service)} className='order-btn'>Buy Now</Button>
+                    <Link to={`/booking/${_id}`}>
+                        <Button className='btn btn-success'>add to cart</Button>
+                    </Link>
                 </Card.Body>
             </Card>
 

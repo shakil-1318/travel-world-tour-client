@@ -25,7 +25,7 @@ const Banner = () => {
                     />
                     <Carousel.Caption className='banner-caption'>
                         <h1>Make you Free to travel with us</h1>
-                        <p>Feel Free To Travel</p>
+
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -37,7 +37,7 @@ const Banner = () => {
 
                     <Carousel.Caption className='banner-caption'>
                         <h1>Sensation Ice Trip Is Coming</h1>
-                        <p>Trip for your kids</p>
+
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -48,7 +48,7 @@ const Banner = () => {
                     />
                     <Carousel.Caption className='banner-caption'>
                         <h1>Explore Your Life Where You Want</h1>
-                        <p>Amazing Places</p>
+
                     </Carousel.Caption>
 
                 </Carousel.Item>
