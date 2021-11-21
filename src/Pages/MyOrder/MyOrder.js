@@ -76,6 +76,7 @@ const MyOrder = () => {
                     }
                 </div>
             </div>
+            <Footer></Footer>
         </>
     );
 };
